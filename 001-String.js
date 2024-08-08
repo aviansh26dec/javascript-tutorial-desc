@@ -188,3 +188,129 @@ console.log("<-----------padStart & padEnd End---------->");
 console.log("<-----------repeat Start---------->");
 console.log(userName.repeat(3));
 console.log("<-----------repeat End---------->");
+
+//replace(): Replaces a specified value with another value in a string.
+console.log("<-----------repeat Start---------->");
+console.log(userName.repeat(3));
+console.log("<-----------repeat End---------->");
+
+
+//replace(): Replaces a specified value with another value in a string.
+console.log("<-----------replace method---------->");
+let str = "Hello World";
+let newStr = str.replace("World", "JavaScript");
+console.log(newStr); // "Hello JavaScript"
+
+
+//replaceAll(): Replaces all occurrences of a specified value with another value in a string.
+console.log("<-----------replace all method---------->");
+let replaeallstr = "Hello World World";
+let newReplaceStr = replaeallstr.replaceAll("World", "JavaScript");
+console.log(newReplaceStr); // "Hello JavaScript JavaScript"
+
+// search(): Searches a string for a specified value and returns the position of the match.
+console.log("<-----------search method---------->");
+let searchStr = "Hello World";
+let searchPosition = searchStr.search("World");
+console.log(searchPosition); // 6
+
+//slice(): Extracts a part of a string and returns it as a new string.
+console.log("<-----------slice method---------->");
+let sliceStr = "Hello World";
+let slicePart = sliceStr.slice(0, 5);
+console.log(slicePart); // "Hello"
+
+//small(): Displays a string as small text (deprecated, use CSS instead).
+console.log("<-----------small method---------->");
+let smallStr = "Hello World";
+let smallMStr = smallStr.small();
+console.log(smallMStr); // "<small>Hello World</small>"
+
+//split(): Splits a string into an array of substrings.
+console.log("<-----------split method---------->");
+let splitStr = "Hello World";
+let splitArr = splitStr.split(" ");
+console.log(splitArr); // ["Hello", "World"]
+
+//startsWith(): Checks if a string starts with a specified value.
+console.log("<-----------startsWith method---------->");
+let startsWithStr = "Hello World";
+let startsWithResult = startsWithStr.startsWith("Hello");
+console.log(startsWithResult); // true
+
+// strike(): Displays a string with a strikethrough (deprecated, use CSS instead).
+console.log("<-----------strike method---------->");
+let strikeStr = "Hello World";
+let strikeMStr = strikeStr.strike();
+console.log(strikeMStr); // "<strike>Hello World</strike>"
+
+// substr(): Extracts a part of a string, starting at a specified index and extending for a given number of characters(length).
+console.log("<-----------substr method---------->");
+let subStr = "Hello World";
+let subStrPart = subStr.substr(0, 5);
+console.log(subStrPart); // "Hello"
+
+//substring(): Extracts the characters between two specified indices in a string.
+console.log("<-----------subStringStr method---------->");
+let subStringStr = "Hello World";
+let subStringPart = subStringStr.substring(0, 5);
+console.log(subStringPart); // "Hello"
+
+//toLocaleLowerCase(): Converts a string to lowercase according to the host's current locale.
+console.log("<-----------toLocaleLowerCase method---------->");
+let lowerStr = str.toLocaleLowerCase();
+console.log(lowerStr); // "hello world"
+
+//toLocaleUpperCase(): Converts a string to uppercase according to the host's current locale.
+console.log("<-----------toLocaleUpperCase method---------->");
+let upperStr = str.toLocaleUpperCase();
+console.log(upperStr); // "hello world"
+
+// toLowerCase(): Converts a string to lowercase.
+console.log("<-----------toLowerCase method---------->");
+lowerStr = str.toLowerCase();
+console.log(lowerStr); // "hello world"
+
+// toLowerCase(): Converts a string to upperstr.
+console.log("<-----------toUpperCase method---------->");
+upperStr = str.toUpperCase();
+console.log(upperStr); // "hello world"
+
+// toString(): Returns a string representing the specified object.
+console.log("<-----------string method---------->");
+let num = 123;
+let numstr = num.toString();
+console.log(numstr); // "123"
+
+// toWellFormed(): Ensures a string is well-formed (correctly encoded).
+console.log("<-----------toWellFormed method---------->");
+let wellFormedStr = str.toWellFormed();
+console.log(wellFormedStr); // "Hello World"
+
+str = " Hello World ";
+// trim(): Removes whitespace from both ends of a string.
+console.log("<-----------trim method---------->");
+let trimmedStr = str.trim();
+console.log(trimmedStr); // "Hello World"
+
+// trimEnd() / trimRight(): Removes whitespace from the end of a string.
+console.log("<-----------trimEnd method---------->");
+let trimmedEndStr = str.trimEnd();
+console.log(trimmedEndStr); // "   Hello World"
+
+// trimStart() / trimLeft(): Removes whitespace from the beginning of a string.
+console.log("<-----------trimStart method---------->");
+let trimmedStartStr = str.trimStart();
+console.log(trimmedStartStr); // "Hello World   "
+
+// valueOf(): Returns the primitive value of a string object.
+console.log("<-----------valueOf method---------->");
+let value = str.valueOf();
+console.log(value); // "Hello World"
+
+
+// let aaddhar_no = "123456789123";
+// let aaddhar_len = aaddhar_no.length;
+// let firstEight = aaddhar_no.substring(0,8);
+
+// console.log(aaddhar_no.replace(firstEight, 'XXXXXXXX'));
