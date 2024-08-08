@@ -1,0 +1,1 @@
+let stringMethod = new String("Avinash Kumar Singh");
