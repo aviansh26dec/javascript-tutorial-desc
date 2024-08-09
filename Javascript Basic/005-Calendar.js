@@ -28,4 +28,6 @@ for(let i = (1 - firstDay); i <= (lastDay + (7 - endday)); i++ ){
     }
 }
 
+
+
 console.log(calendar);
