@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Document Object Model | Slider</title>
+    <style>
+        body .slider{
+            background-color: #fff;
+            display: table;
+            width: 94%;
+        }
+
+        body .slider li{
+            list-style-type: none;
+            float: left;
+            /* padding-top: 10px;
+            padding-bottom: 10px; */
+            font-size: 50px;
+            font-weight: bold;
+            display: none;
+            width: 100%;
+            line-height: 250px;
+            text-align: center;
+        }
+
+        body .slider li:first-child{
+            list-style-type: none;
+            float: left;
+            /* padding-top: 10px;
+            padding-bottom: 10px; */
+            font-size: 50px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            line-height: 250px;
+            text-align: center;
+            animation-name:inherit;
+            animation: forwards;
+            animation-duration: 4s;
+        }
+    </style>
+</head>
+<body style="background-color: #212121;">
+    <ul class="slider">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <a href="#" id="next" rel="noopener noreferrer">Next</a>
+    <a href="#" id="prev" rel="noopener noreferrer">Prev</a>
+    
+    <script>
+        const next = document.querySelector('#next');
+        const prev = document.querySelector('#prev');
+
+        next.onclick = function(){
+            const firstElement = document.querySelector('.slider li:first-child');
+            if(Number(firstElement.innerHTML) < 10){
+                firstElement.innerHTML = Number(firstElement.innerHTML) + 1;
+            }else{
+                firstElement.innerHTML = 1;
+            }
+        }
+
+        prev.onclick = function(){
+            const firstElement = document.querySelector('.slider li:first-child');
+            if(Number(firstElement.innerHTML) > 1){
+                firstElement.innerHTML= Number(firstElement.innerHTML) - 1;
+            }else{
+                firstElement.innerHTML = 10;
+            }
+        }
+    </script>
+</body>
+</html>

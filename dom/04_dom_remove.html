@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Document Object Model</title>
+</head>
+<body style="background-color:#212121; color:#fff;">
+    <ul class="language">
+        <li>
+            Javascript
+        </li>
+    </ul>
+</body>
+<script>
+    /**
+     * difference between innerHTML and createTextNode
+     * both are used to add text in document node
+     * innerHTML traverse all tree structure and add text but creteTextNode directly add the text
+    **/
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = langName;
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addLanguage('Python');
+    addLanguage('Typescript');
+
+    function addOptimizedLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addOptimizedLang('Php');
+
+    // Edit value
+    const secondLang = document.querySelector('li:nth-child(2)');
+    const newLisSecondLang = document.createElement('li');
+    newLisSecondLang.textContent = 'Mojo';
+    secondLang.replaceWith(newLisSecondLang);
+
+    const firstLang = document.querySelector('li:first-child');
+    firstLang.outerHTML = '<li>Go Lang</li>'
+
+    //remove li
+    const removeLang = document.querySelector('li:last-child').remove();
+</script>
+</html>

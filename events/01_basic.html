@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Javascript</title>
+</head>
+<body>
+
+    <ul id="image">
+        <li><img src="https://cdn.pixabay.com/photo/2020/04/30/11/28/pen-5112463_1280.jpg" id="one" width="150px" /></li>
+        <li><img src="https://cdn.pixabay.com/photo/2019/07/26/11/31/iguana-4364553_1280.jpg" id="two" width="150px" /></li>
+        <li><img src="https://media.istockphoto.com/id/1987435635/photo/business-man-woman-and-paperwork-with-discussion-for-deal-agreement-and-proposal-for-b2b.jpg?s=1024x1024&w=is&k=20&c=WwwXEk2Kgq0Bf917EJ97mPIYHFXa2H4k9yJHDNMH7JA=" id="three" width="150px" /></li>
+        <li><img src="https://media.istockphoto.com/id/525409577/photo/elevated-view-of-students-writing-their-gcse-exam.jpg?s=1024x1024&w=is&k=20&c=c-ojE5uhGJfTRkBb9hWkp1Bnc7CRpI_ZsHyHJwhxwyE=" id="four" width="150px" /></li>
+        <li><a href="google.com" id="google">Google</a></li>
+    </ul>
+    
+</body>
+<script>
+    /** 
+     * The addEventListener method in JavaScript is used to attach an event handler to a specified element. This method allows you to specify the type of event to listen for, the function to execute when the event occurs, and optional parameters to control the event's behavior.
+     * 
+     * element.addEventListener(event, function, useCapture);
+     * 
+     * element: The HTML element you want to attach the event listener to.
+     * event: A string representing the event type (e.g., "click", "mouseover").
+     * function: The function to run when the event occurs.
+     * useCapture (optional): A boolean indicating whether the event should be captured or bubbled.
+     * 
+     * In bubbled child to parent read
+     * In capture parent to child
+     * 
+    */
+    document.getElementById('image').addEventListener('click', function(e){
+        e.preventDefault();
+        console.log(e.target.tagName);
+        if(e.target.tagName == 'IMG'){
+            const removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+    }, false);
+
+    // document.getElementById('two').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation(); // it is used to prevent parent event
+    //     console.log('clicked'+e.target.parentNode)
+    // }, false)
+</script>
+</html>
