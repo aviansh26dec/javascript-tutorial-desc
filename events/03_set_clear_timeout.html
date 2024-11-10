@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set/Clear Timeout</title>
+</head>
+<body>
+    <h1>Avinash Kumar Singh</h1>
+    <button id="stop">Stop</button>
+
+    <p>
+        <b>setTimeout</b> function is used to call any function or method after some particular time. It's run one one time.
+    </p>
+    <p>
+        <b>clearTimeout</b> function is used to clear the setTimeout. Once this function call <b>setTimeout</b> function not call.
+    </p>
+</body>
+<script>
+    const myFunc = function(){
+        const tag = document.querySelector('h1');
+        tag.innerHTML = "Hi, "+tag.innerHTML;
+    };
+
+    const timeoutId = setTimeout(myFunc, 2000);
+
+    const button = document.querySelector('#stop');
+
+    button.addEventListener('click', function(e){
+        e.preventDefault();
+        clearTimeout(timeoutId);
+        alert('Interval Clear Successfully');
+    });
+     
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+    <style>
+        code{
+            background-color: #212121; 
+            color: #fff; 
+            display: table; 
+            padding: 10px;
+            margin: 10px 0px 10px 0px;
+        }
+        code::after {
+            content: "\A";
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h1>OOP</h1>
+    <p>Object-oriented programming (OOP) is a programming paradigm used by developers to structure software applications into reusable pieces of code and blueprints using objects.</p>
+
+    <h1>Prototype</h1>
+    <p>All JavaScript objects inherit properties and methods from a prototype. The Object.prototype is on the top of the prototype inheritance chain.</p>
+    
+    <h2>4 Pillars of OOP</h2>
+    <h3>Abstraction</h3>
+    <p>Creating abstraction in JavaScript involves organizing your code in a way that hides complex details and exposes only the essential features to other parts of your program.
+        <br>
+        Example: You might have an object Car with private details (e.g engineType, mileage) and public methods(e.g., start(), drive). The user only interacts with public method without needing to understand how they work.
+        <br>
+        <code>
+            class ImplementAbstraction { <br>
+                // method to set values of internal members<br>
+                set(x, y) {<br>
+                  this.a = x;<br>
+                  this.b = y;<br>
+                }<br>
+              
+                display() {<br>
+                  console.log(`a = ${this.a}`);<br>
+                  console.log(`b = ${this.b}`);<br>
+                }<br>
+              }<br>
+              
+              const obj = new ImplementAbstraction();<br>
+              obj.set(10, 20);<br>
+              obj.display();<br>
+              // a = 10<br>
+              // b = 20<br>
+              
+        </code>
+    </p>
+    <h3>Encapsulation</h3>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstaction | OOP</title>
+    <style>
+        /* Custom code block styling */
+        .code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <h2>Abstaction</h2>
+    <p>Abstraction is the process of simplifying complex systems by focusing only on the relevant details and hiding the irrelevant ones. It involves creating a simplified model of something more complex.
+    </p>
+    <p><b>Purpose:</b><br> To expose only the essential features of an object, minimizing the amount of detail needed to understand it.
+    </p>
+    <p><b>How It’s Achieved:</b> <br> Through abstract classes and interfaces. These define a structure without detailing the implementation.
+    </p>
+    <p><b>Example:</b> <br> A Car class could have abstract methods like start() and stop(), representing actions that any car can perform without specifying how they work.</p>
+    <p class="code">
+        // Example in JavaScript using an abstract-like structure
+        class Car {
+            start() { throw "Abstract method! Implement in subclass"; }
+            stop() { throw "Abstract method! Implement in subclass"; }
+        }
+
+        class ElectricCar extends Car {
+            start() { console.log("Electric car starting..."); }
+            stop() { console.log("Electric car stopping..."); }
+        }
+
+        const myCar = new ElectricCar();
+        myCar.start(); // "Electric car starting..."
+    </p>
+    <p>Here, the Car class defines the actions (start, stop) any car should have, but the exact workings are left to the subclasses.</p>
+</body>
+</html>

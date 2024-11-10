@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Function</title>
+    <style>
+    .code {
+        display: block;           /* makes code appear in a block format */
+        background-color: #f4f4f9; /* light background for contrast */
+        color: #333;               /* dark text color for readability */
+        padding: 10px;             /* spacing around code */
+        border-radius: 5px;        /* rounded corners */
+        font-family: monospace;    /* monospaced font for code */
+        font-size: 1em;            /* font size adjustment */
+        overflow-x: auto;          /* enables horizontal scroll for long lines */
+        white-space: pre;          /* preserves formatting, including spaces and line breaks */
+        border: 1px solid #ddd;    /* subtle border */
+    }
+</style>
+</head>
+<body>
+    <h2>Call</h2>
+    <p>The .call() function in JavaScript is a built-in method of functions that allows you to invoke a function with a specified this context and pass arguments individually.</p>
+    <p class="code">
+        functionName.call(thisArg, arg1, arg2, ...);
+    </p>
+    <p>
+        thisArg: Specifies the this value for the function when it’s called. This is the object that this inside the function will refer to. <br>
+        arg1, arg2, ...: The arguments you want to pass to the function, separated by commas. <br>
+        When to Use .call() <br>
+        The .call() method is useful when:<br>
+
+        You need to invoke a function in the context of a specific object.<br>
+        You want to borrow methods from other objects.<br>
+        Example 1: Using .call() to Set this Context
+    </p>
+    <p class="code">
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        
+        const anotherPerson = {
+            firstName: "Jane",
+            lastName: "Smith"
+        };
+
+        // Using call to invoke fullName with `anotherPerson` as `this`
+        console.log(person.fullName.call(anotherPerson)); // "Jane Smith"
+    </p>
+    <p>The fullName function is defined in person. <br>
+        Using .call(), we invoke fullName with anotherPerson as the this context, so it returns "Jane Smith" instead of "John Doe".</p>
+</body>
+</html>

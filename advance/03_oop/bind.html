@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+<body>
+    <button>Click Me!</button>
+
+    <script>
+        class buttonEvent{
+            constructor(name){
+                this.userName = name;
+
+                document.querySelector('button').addEventListener('click', this.handleClick.bind(this))
+            }
+
+            handleClick(){
+                console.log('Clicked');
+                console.log(this.userName)
+            }
+        }
+
+        const user = new buttonEvent('Avinash');
+    </script>
+</body>
+</html>

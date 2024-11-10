@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation | OOP</title>
+    <style>
+        /* Custom code block styling */
+        .code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <h2>Encapsulation</h2>
+    <p>Encapsulation is the practice of bundling the data (attributes) and the methods (functions) that operate on the data into a single unit, typically a class. It also involves restricting direct access to some of an object’s components, usually by making attributes private or protected.</p>
+    <p><b>Purpose:</b><br> To protect the internal state of an object and ensure it is used only in controlled ways.</p>
+    <p><b>How It’s Achieved:</b> <br> Through access modifiers like private, protected, and public (though JavaScript lacks true privacy, other languages like Java and Python support this more explicitly).</p>
+    <p><b>Example:</b> <br> A BankAccount class may hide its balance and only allow it to be accessed or modified through methods like deposit() and withdraw(), preventing unauthorized access.    </p>
+    <p class="code">
+        class BankAccount {
+            #balance = 0; // private field (using # syntax for private in JavaScript)
+        
+            deposit(amount) {
+                if (amount > 0) this.#balance += amount;
+            }
+        
+            withdraw(amount) {
+                if (amount > 0 && amount <= this.#balance) this.#balance -= amount;
+            }
+        
+            getBalance() {
+                return this.#balance;
+            }
+        }
+        
+        const account = new BankAccount();
+        account.deposit(100);
+        console.log(account.getBalance());
+    </p>
+    <p>Here, the balance is kept private (#balance), and the only way to change or access it is through the deposit, withdraw, and getBalance methods.</p>
+</body>
+</html>

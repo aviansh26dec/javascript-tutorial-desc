@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set/Clear Interval</title>
+</head>
+<body>
+    <h1></h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <p>
+        <b>setInterval</b> function is used to call any function or method after some particular time. It's run after each interval.
+    </p>
+    <p>
+        <b>clearInterval</b> function is used to clear the setInterval Once this function call <b>setInterval</b> function not stop.
+    </p>
+</body>
+<script>
+    const tag = document.querySelector('h1');
+    const date = new Date();
+    tag.innerHTML = date.toLocaleTimeString();
+
+    const myFunc = function(){
+        const date = new Date();
+        tag.innerHTML = date.toLocaleTimeString();
+    };
+
+    let intervalId;
+
+    const stoptButton = document.querySelector('#stop');
+    const startButton = document.querySelector('#start');
+
+    startButton.addEventListener('click', function(e){
+        e.preventDefault();
+        intervalId = setInterval(myFunc, 1000);
+    });
+
+    
+    stoptButton.addEventListener('click', function(e){
+        e.preventDefault();
+        clearInterval(intervalId);
+    });
+     
+</script>
+</html>

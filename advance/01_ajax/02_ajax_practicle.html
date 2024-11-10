@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <button id="cancel">Cancel</button>
+    <button id="fetch">Fetch</button>
+</body>
+<script>
+    let cancelStatus = false;
+    document.getElementById('cancel').disabled = true;
+    document.getElementById('cancel').addEventListener('click', function(e){
+        document.getElementById('cancel').disabled = true;
+        document.getElementById('fetch').disabled = false;
+        cancelStatus = true;
+    });
+
+    document.getElementById('fetch').addEventListener('click', function(e){
+        e.preventDefault();
+        const body = document.querySelector('body');
+        document.getElementById('cancel').disabled = false;
+        document.getElementById('fetch').disabled = true;
+
+        const reqMethod = 'GET';
+        const reqUrl = 'https://randomuser.me/api/';
+        const xhr = new XMLHttpRequest();
+
+        setTimeout(() => {
+            xhr.open(reqMethod, reqUrl, true);
+            
+            setTimeout(() => {
+                xhr.send();
+                document.getElementById('cancel').addEventListener('click', (e) => {
+                    if(document.getElementById('cancel').innerHTML == 'Cancel'){
+                        xhr.abort();
+                    }
+                });
+            }, 2000);
+        }, 1000);
+
+        
+
+        xhr.onload = function(){
+            console.log(this.readyState);
+
+            const resData = JSON.parse(this.responseText);
+            const img = document.createElement('img');
+            img.src = resData.results[0].picture.large;
+            img.setAttribute('width', '150px');
+            body.appendChild(img);
+        }
+
+        xhr.onreadystatechange = function(){
+            console.log(this.status);
+            const element = document.createElement('h4');
+
+            if(this.readyState == 1){
+                const stateOne = document.createTextNode('Connected with server');
+                element.appendChild(stateOne);
+            }
+
+            if(this.readyState == 2){
+                const stateTwo = document.createTextNode('Request Received');
+                element.appendChild(stateTwo);
+            }
+            if(this.readyState == 3){
+                let stateThree;
+                if(cancelStatus){
+                    xhr.abort();
+                    stateThree = document.createTextNode('Request Cancelled.');
+                    element.appendChild(stateThree);
+                }else{
+                    stateThree = document.createTextNode('Processing Request.');
+                    element.appendChild(stateThree);
+                }
+            }
+            if(this.readyState == 4){
+                const stateFour = document.createTextNode('Request finished and response is ready.');
+                element.appendChild(stateFour);
+            }
+
+            body.appendChild(element);
+        }
+
+    });
+
+    
+</script>
+</html>

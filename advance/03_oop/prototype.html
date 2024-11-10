@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <style>
+        /* Custom code block styling */
+        .custom-code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <p>
+        In JavaScript, prototype and __proto__ serve different but related purposes in the inheritance model. Here’s a breakdown:
+    </p>
+    <p>
+        <h2>prototype</h2>
+        <ul>
+            <li>
+                prototype is a property of constructor functions (such as function MyFunc() {} or ES6 class declarations).
+            </li>
+            <li>
+                This prototype property is an object that gets attached as the __proto__ (or [[Prototype]]) of instances created by that constructor.
+            </li>
+            <li>
+                Any properties or methods added to MyFunc.prototype will be accessible to all instances of MyFunc.
+            </li>
+        </ul> 
+    </p>
+    <p>
+        Example:
+    </p>
+    <p class="custom-code">
+        function MyFunc() {}
+        MyFunc.prototype.sayHello = function() {
+        console.log("Hello");
+        };
+
+        const instance = new MyFunc();
+        instance.sayHello(); // "Hello"
+    </p>
+    <p>
+        <h2>
+            __proto__
+        </h2>
+        <ul>
+            <li>__proto__ is a property of an object instance, pointing to the object’s prototype (its "parent" object in the prototype chain).
+            </li>
+            <li>This __proto__ link allows instances to inherit properties and methods from their constructor’s prototype.</li>
+            <li>__proto__ itself is not standardized as a property but is commonly supported; it essentially gives access to the object's internal [[Prototype]].
+            </li>
+        </ul>
+    </p>
+    <p>
+        Example:
+    </p>
+    <p class="custom-code">
+        function MyFunc() {}
+    const instance = new MyFunc();
+
+    console.log(instance.__proto__ === MyFunc.prototype); // true
+
+    </p>
+    <p>
+        
+<h2>Key Differences</h2>
+<b>Ownership:</b>
+
+prototype is a property of a constructor function.
+__proto__ is a property of an instance.
+
+<b>Purpose:</b>
+
+prototype defines properties and methods to be shared by instances created by the constructor.
+__proto__ connects an instance to its prototype for property lookup.
+
+<b>Usage:</b>
+
+You use prototype when defining shared properties/methods for instances.
+__proto__ is generally used for inspection and is rarely modified directly.
+</p>
+<p class="custom-code">
+function Animal() {}
+Animal.prototype.speak = function() {
+  console.log("Animal sound");
+};
+
+const dog = new Animal();
+dog.speak(); // "Animal sound"
+
+// dog.__proto__ points to Animal.prototype
+console.log(dog.__proto__ === Animal.prototype); // true
+</p>
+<p>
+
+In summary, prototype is used to set up inheritance, while __proto__ is a link to an object’s prototype, enabling inheritance to work.
+    </p>
+</body>
+</html>

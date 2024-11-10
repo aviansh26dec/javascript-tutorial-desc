@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymorphism | OOP</title>
+    <style>
+        /* Custom code block styling */
+        .code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <h2>Polymorphism</h2>
+    <p>Polymorphism is the ability of different classes to provide a unique implementation of the same method. In JavaScript, polymorphism can be achieved through method overriding.</p>
+    <p><b>Example:</b> <br> Using the Animal and Dog classes from before, we demonstrate polymorphism by creating additional subclasses with their own implementations of the speak method.
+    </p>
+    <p class="code">
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+        
+            speak() {
+                console.log(`${this.name} makes a sound.`);
+            }
+        }
+        
+        class Dog extends Animal {
+            speak() {
+                console.log(`${this.name} barks.`);
+            }
+        }
+        
+        class Cat extends Animal {
+            speak() {
+                console.log(`${this.name} meows.`);
+            }
+        }
+        
+        const animals = [
+            new Dog("Buddy"),
+            new Cat("Whiskers")
+        ];
+        
+        animals.forEach(animal => animal.speak());
+        // Output:
+        // "Buddy barks."
+        // "Whiskers meows."
+
+    </p>
+    <p>
+        Both Dog and Cat are subclasses of Animal. <br>
+        Each subclass provides its own implementation of the speak method, allowing each type of animal to "speak" in its way. <br>
+        We use polymorphism by calling speak() on each object in the animals array, and JavaScript dynamically determines the correct implementation based on the object's type.    
+    </p>
+</body>
+</html>

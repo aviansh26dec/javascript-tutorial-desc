@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation | OOP</title>
+    <style>
+        /* Custom code block styling */
+        .code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <h2>Inheritance</h2>
+    <p>Inheritance allows one class (or function) to inherit properties and methods from another class. In JavaScript, inheritance is achieved through prototypes and, in modern JavaScript (ES6+), classes.</p>
+    <p><b>Example:</b> <br> When using classes, JavaScript allows you to create a subclass (child class) that inherits from a superclass (parent class) with the extends keyword.</p>
+    <p class="code">
+        // Parent class
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            
+            speak() {
+                console.log(`${this.name} makes a sound.`);
+            }
+        }
+
+        // Child class inheriting from Animal
+        class Dog extends Animal {
+            speak() {
+                console.log(`${this.name} barks.`);
+            }
+        }
+
+        const dog = new Dog("Buddy");
+        dog.speak(); // "Buddy barks."
+
+    </p>
+</body>
+</html>
