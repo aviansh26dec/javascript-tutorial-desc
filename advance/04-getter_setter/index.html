@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter & Setter in Javascript</title>
+    <style>
+        code {
+            display: block;           /* makes code appear in a block format */
+            background-color: #f4f4f9; /* light background for contrast */
+            color: #333;               /* dark text color for readability */
+            padding: 10px;             /* spacing around code */
+            border-radius: 5px;        /* rounded corners */
+            font-family: monospace;    /* monospaced font for code */
+            font-size: 1em;            /* font size adjustment */
+            overflow-x: auto;          /* enables horizontal scroll for long lines */
+            white-space: pre;          /* preserves formatting, including spaces and line breaks */
+            border: 1px solid #ddd;    /* subtle border */
+        }
+    </style>
+</head>
+<body>
+    <h2>Getter And Setter</h2>
+    <p>In JavaScript, getters and setters are methods that provide controlled access to the properties of an object. They allow you to define methods for getting and setting the value of an object property. Using them, you can add logic to properties when they’re accessed or updated, which is especially helpful for validation, logging, or automatically calculating values.</p>
+    <code>
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            
+            // Getter
+            get fullName() {
+              return `${this.firstName} ${this.lastName}`;
+            },
+            
+            // Setter
+            set fullName(name) {
+              const [first, last] = name.split(" ");
+              this.firstName = first;
+              this.lastName = last;
+            }
+          };
+          
+          // Using the getter
+          console.log(person.fullName); // "John Doe"
+          
+          // Using the setter
+          person.fullName = "Jane Smith";
+          console.log(person.firstName); // "Jane"
+          console.log(person.lastName);  // "Smith"
+          
+    </code>
+</body>
+</html>
